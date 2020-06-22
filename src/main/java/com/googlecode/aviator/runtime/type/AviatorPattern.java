@@ -58,6 +58,9 @@ public class AviatorPattern extends AviatorObject {
 
   @Override
   public AviatorObject add(final AviatorObject other, final Map<String, Object> env) {
+    if(other == null)
+      return AviatorBoolean.FALSE;
+    
     switch (other.getAviatorType()) {
       case String:
         return new AviatorString(this.pattern.pattern() + ((AviatorString) other).getLexeme());
